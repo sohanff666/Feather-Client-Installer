@@ -16,10 +16,10 @@ namespace featherclient {
 
         HttpClient httpClient = new HttpClient();
         private static string minecraftDir = $"{Environment.GetEnvironmentVariable("APPDATA")}\\.minecraft";
-        private static string sapphireLibrariesDir = $"{minecraftDir}\\libraries\\sapphire\\feather\\1.8.9";
+        private static string sapphireLibrariesDir = $"{minecraftDir}\\libraries\\sapphire\\feather\\2.1.4";
         private static string forgeLibrariesDir = $"{minecraftDir}\\libraries\\net\\minecraftforge";
-        private static string forgeDir = $"{minecraftDir}\\versions\\1.8.9-forge1.8.9-11.15.1.2318-1.8.9";
-        private static string versionFolder = $"{minecraftDir}\\versions\\1.8.9";
+        private static string forgeDir = $"{minecraftDir}\\versions\\2.1.4-forge2.1.4-11.15.1.2318-2.1.4";
+        private static string versionFolder = $"{minecraftDir}\\versions\\2.1.4";
 
         public async Task run() {
             Console.Title = "Feather Client Installer - Sapphire.ac";
@@ -69,14 +69,14 @@ namespace featherclient {
                 File.Delete(minecraftDir + "\\libraries\\libraries.zip");
             }
             if (!Directory.Exists(versionFolder)) {
-                await downloadFile(new Uri(downloads[3]), $"{minecraftDir}\\versions\\1.8.9.zip");
-                ZipFile.ExtractToDirectory($"{minecraftDir}\\versions\\1.8.9.zip", $"{versionFolder}");
-                File.Delete(minecraftDir + "\\versions\\1.8.9.zip");
+                await downloadFile(new Uri(downloads[3]), $"{minecraftDir}\\versions\\2.1.4.zip");
+                ZipFile.ExtractToDirectory($"{minecraftDir}\\versions\\2.1.4.zip", $"{versionFolder}");
+                File.Delete(minecraftDir + "\\versions\\2.1.4.zip");
             }
             Directory.CreateDirectory(forgeDir + "\\natives");
 
-            await downloadFile(new Uri(downloads[0]), $"{minecraftDir}\\versions\\1.8.9-forge1.8.9-11.15.1.2318-1.8.9\\1.8.9-forge1.8.9-11.15.1.2318-1.8.9.json");
-            await downloadFile(new Uri(downloads[1]), $"{minecraftDir}\\libraries\\sapphire\\feather\\1.8.9\\feather-1.8.9.jar");
+            await downloadFile(new Uri(downloads[0]), $"{minecraftDir}\\versions\\2.1.4-forge2.1.4-11.15.1.2318-2.1.4\\2.1.4-forge2.1.4-11.15.1.2318-2.1.4.json");
+            await downloadFile(new Uri(downloads[1]), $"{minecraftDir}\\libraries\\sapphire\\feather\\2.1.4\\feather-2.1.4.jar");
             await downloadFile(new Uri(downloads[2]), $"{forgeDir}\\natives.zip");
 
             ZipFile.ExtractToDirectory($"{forgeDir}\\natives.zip", $"{forgeDir}\\natives");
@@ -88,7 +88,7 @@ namespace featherclient {
                 ["created"] = "1970-01-02T00:00:00.000Z",
                 ["icon"] = "Furnace",
                 ["lastUsed"] = DateTime.UtcNow.ToString("yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fff'Z'"),
-                ["lastVersionId"] = "1.8.9-forge1.8.9-11.15.1.2318-1.8.9",
+                ["lastVersionId"] = "2.1.4-forge2.1.4-11.15.1.2318-2.1.4",
                 ["javaArgs"] = $"-Djava.library.path=\"{forgeDir}\\natives\" -Xmx2G -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M",
                 ["name"] = "Feather",
                 ["type"] = ""
